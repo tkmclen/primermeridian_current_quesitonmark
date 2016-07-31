@@ -31,18 +31,11 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="356dp"
-            android:layout_gravity="center"
+            android:layout_height="300dp"
+            android:layout_gravity="center_horizontal|bottom"
             android:weightSum="1"
             android:id="@+id/MAIN_HOME"
-            android:visibility="visible">
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="0.57"
-                android:id="@+id/MAIN_HOME_SPACE1" />
+            android:visibility="gone">
 
             <Button
                 android:layout_width="wrap_content"
@@ -90,130 +83,8 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:id="@+id/MAIN_TMENU_WORKTIMER"
-                android:layout_marginTop="40dp">
-
-                <GridLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:columnCount="6"
-                    android:rowCount="3" >
-
-                    <EditText
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:inputType="number"
-                        android:ems="10"
-                        android:id="@+id/WORK_HR"
-                        android:text="00"
-                        android:textSize="50dp"
-                        android:textAlignment="textEnd"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_row="0"
-                        android:layout_column="0" />
-
-                    <EditText
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:inputType="number"
-                        android:ems="10"
-                        android:id="@+id/WORK_MIN"
-                        android:text="40"
-                        android:textSize="50dp"
-                        android:textAlignment="center"
-                        android:layout_gravity="right"
-                        android:layout_alignTop="@+id/TEXT_COL4"
-                        android:layout_alignParentEnd="true"
-                        android:layout_row="0"
-                        android:layout_column="3" />
-
-                    <TextView
-                        android:layout_width="40dp"
-                        android:layout_height="75dp"
-                        android:text=":"
-                        android:id="@+id/TEXT_COL3"
-                        android:textSize="65dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_toStartOf="@+id/editText"
-                        android:layout_row="0"
-                        android:layout_column="1"
-                        android:textAlignment="center" />
-
-                    <TextView
-                        android:layout_width="40dp"
-                        android:layout_height="75dp"
-                        android:text=" : "
-                        android:id="@+id/TEXT_COL4"
-                        android:textSize="65dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_toStartOf="@+id/editText"
-                        android:layout_row="0"
-                        android:layout_column="4"
-                        android:textAlignment="center" />
-
-                    <EditText
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:inputType="number"
-                        android:ems="10"
-                        android:id="@+id/BREAK_SEC"
-                        android:text="00"
-                        android:textSize="50dp"
-                        android:textAlignment="textStart"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_row="0"
-                        android:layout_column="5" />
-                </GridLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="42dp"
-                    android:layout_gravity="center_horizontal|top"
-                    android:weightSum="1"
-                    android:id="@+id/linearLayout2" >
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center_horizontal"
-                        android:id="@+id/linearLayout" >
-
-                        <CheckBox
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="WORK TIMER (optional)"
-                            android:id="@+id/BOX_WORKPROMPT"
-                            android:checked="true"
-                            android:textAlignment="center"
-                            android:textSize="25dp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </FrameLayout>
-
-            <Button
-                android:layout_width="309dp"
-                android:layout_height="75dp"
-                android:text="NEXT"
-                android:id="@+id/MAIN_TMENU_NEXT"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center_horizontal|bottom" />
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_gravity="center_horizontal|top"
-                android:id="@+id/MAIN_TMENU_BREAKTIMER" >
+                android:layout_gravity="top|left|center_horizontal"
+                android:id="@+id/BREAKTIMER_FRAME" >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -231,9 +102,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:columnCount="6"
+                    android:columnCount="5"
                     android:rowCount="3"
-                    android:id="@+id/___BREAKGRID">
+                    android:id="@+id/BREAKTIMER_DISPLAY_GRID">
 
                     <EditText
                         android:layout_width="75dp"
@@ -241,34 +112,18 @@
                         android:inputType="number"
                         android:ems="10"
                         android:id="@+id/BREAK_HR"
+                        android:layout_row="0"
+                        android:layout_column="0"
                         android:text="00"
                         android:textSize="50dp"
-                        android:textAlignment="textEnd"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_row="0"
-                        android:layout_column="0" />
-
-                    <EditText
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:inputType="number"
-                        android:ems="10"
-                        android:id="@+id/BREAK_MIN"
-                        android:text="20"
-                        android:textSize="50dp"
-                        android:textAlignment="center"
-                        android:layout_gravity="right"
-                        android:layout_alignTop="@+id/textView5"
-                        android:layout_alignParentEnd="true"
-                        android:layout_row="0"
-                        android:layout_column="3" />
+                        android:editable="true"
+                        android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="40dp"
                         android:layout_height="75dp"
                         android:text=" : "
-                        android:id="@+id/textView4"
+                        android:id="@+id/BREAK_COLON1"
                         android:textSize="65dp"
                         android:layout_alignParentBottom="true"
                         android:layout_toStartOf="@+id/editText8"
@@ -276,16 +131,29 @@
                         android:layout_column="1"
                         android:textAlignment="center" />
 
+                    <EditText
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/BREAK_MIN"
+                        android:layout_row="0"
+                        android:layout_column="2"
+                        android:text="00"
+                        android:textSize="50dp"
+                        android:editable="true"
+                        android:textAlignment="center" />
+
                     <TextView
                         android:layout_width="40dp"
                         android:layout_height="75dp"
                         android:text=" : "
-                        android:id="@+id/textView5"
+                        android:id="@+id/BREAK_COLON2"
                         android:textSize="65dp"
                         android:layout_alignParentBottom="true"
                         android:layout_toStartOf="@+id/editText8"
                         android:layout_row="0"
-                        android:layout_column="4"
+                        android:layout_column="3"
                         android:textAlignment="center" />
 
                     <EditText
@@ -294,296 +162,298 @@
                         android:inputType="number"
                         android:ems="10"
                         android:id="@+id/BREAK_SEC"
+                        android:layout_row="0"
+                        android:layout_column="4"
                         android:text="00"
                         android:textSize="50dp"
-                        android:textAlignment="textStart"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_row="0"
-                        android:layout_column="5" />
+                        android:editable="true"
+                        android:textAlignment="center" />
+
                 </GridLayout>
 
             </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:id="@+id/WORKTIMER_FRAME"
+                android:layout_marginTop="40dp">
+
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="WORK TIMER (optional)"
+                    android:id="@+id/BOX_WORKPROMPT"
+                    android:checked="true"
+                    android:textAlignment="center"
+                    android:textSize="25dp"
+                    android:layout_gravity="center_horizontal|top" />
+
+                <GridLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:columnCount="5"
+                    android:rowCount="3"
+                    android:id="@+id/gridLayout" >
+
+                    <EditText
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/WORK_HR"
+                        android:layout_row="0"
+                        android:layout_column="0"
+                        android:text="00"
+                        android:textSize="50dp"
+                        android:editable="true"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="75dp"
+                        android:text=" : "
+                        android:id="@+id/WORK_COLON1"
+                        android:textSize="65dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toStartOf="@+id/editText8"
+                        android:layout_row="0"
+                        android:layout_column="1"
+                        android:textAlignment="center" />
+
+                    <EditText
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/WORK_MIN"
+                        android:layout_row="0"
+                        android:layout_column="2"
+                        android:text="00"
+                        android:textSize="50dp"
+                        android:editable="true"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="75dp"
+                        android:text=" : "
+                        android:id="@+id/WORK_COLON2"
+                        android:textSize="65dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toStartOf="@+id/editText8"
+                        android:layout_row="0"
+                        android:layout_column="3"
+                        android:textAlignment="center" />
+
+                    <EditText
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/WORK_SEC"
+                        android:layout_row="0"
+                        android:layout_column="4"
+                        android:text="00"
+                        android:textSize="50dp"
+                        android:editable="true"
+                        android:textAlignment="center" />
+                </GridLayout>
+
+            </FrameLayout>
+
+            <Button
+                android:layout_width="309dp"
+                android:layout_height="75dp"
+                android:text="NEXT"
+                android:id="@+id/MAIN_TMENU_NEXT"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal|bottom" />
 
         </FrameLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="338dp"
+            android:layout_height="365dp"
             android:layout_gravity="center_horizontal|bottom"
             android:id="@+id/MAIN_SMENU"
-            android:visibility="gone">
+            android:visibility="gone"
+            android:touchscreenBlocksFocus="false">
 
-            <RelativeLayout
-                android:layout_width="178dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="left|center_vertical"
-                android:id="@+id/__SELECTSET">
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:id="@+id/TEMPLATE_SPINNER"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal|top"
+                android:visibility="visible"
+                android:spinnerMode="dialog" />
 
-                <TextView
-                    android:layout_width="156dp"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="SELECT SKILL SET:"
-                    android:id="@+id/TEXT_SETPROMPT"
-                    android:layout_gravity="top|left|bottom|center_vertical"
-                    android:textAlignment="center"
-                    android:textSize="20dp"
-                    android:gravity="top"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginBottom="10dp" />
-
-                <ExpandableListView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/LIST_SKILLSETS"
-                    android:layout_alignParentStart="true"
-                    android:layout_above="@+id/MAIN_SMENU_BUTTON_OK"
-                    android:choiceMode="singleChoice"
-                    android:layout_alignParentEnd="true"
-                    android:layout_below="@+id/TEXT_SETPROMPT" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="OK"
-                    android:id="@+id/MAIN_SMENU_BUTTON_OK"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="147dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="right|center_vertical"
-                android:id="@+id/__SETSKILLS"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:weightSum="1"
+                android:id="@+id/TEMPLATE_SKILLS_FRAME"
                 android:visibility="visible">
 
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:text="[?]"
-                    android:id="@+id/Q1"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true" />
-
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="SKILL2"
-                    android:id="@+id/BUTTON_SKILL2"
+                    android:text="Skills Used:"
+                    android:id="@+id/SKILLS_HEADER"
                     android:textSize="25dp"
-                    android:gravity="center_vertical"
-                    android:layout_below="@+id/BUTTON_SKILL1"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentStart="true" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="SKILL1"
-                    android:id="@+id/BUTTON_SKILL1"
-                    android:textSize="25dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:gravity="center_vertical" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="SKILL3"
-                    android:id="@+id/BUTTON_SKILL3"
-                    android:textSize="25dp"
-                    android:gravity="center_vertical"
-                    android:layout_below="@+id/BUTTON_SKILL2"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="SKILL4"
-                    android:id="@+id/BUTTON_SKILL4"
-                    android:textSize="25dp"
-                    android:gravity="center_vertical"
-                    android:layout_below="@+id/BUTTON_SKILL3"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignEnd="@+id/Q1" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="SKILL5"
-                    android:id="@+id/BUTTON_SKILL5"
-                    android:textSize="25dp"
-                    android:gravity="center_vertical"
-                    android:layout_below="@+id/BUTTON_SKILL4"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="SKILL6"
-                    android:id="@+id/BUTTON_SKILL6"
-                    android:textSize="25dp"
-                    android:gravity="center_vertical"
-                    android:layout_below="@+id/BUTTON_SKILL5"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentStart="true" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="SKILL7"
-                    android:id="@+id/BUTTON_SKILL7"
-                    android:textSize="25dp"
-                    android:gravity="center_vertical"
-                    android:layout_below="@+id/BUTTON_SKILL6"
-                    android:layout_alignEnd="@+id/Q1"
-                    android:layout_alignParentStart="true" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="SKILL8"
-                    android:id="@+id/BUTTON_SKILL8"
-                    android:textSize="25dp"
-                    android:gravity="center_vertical"
-                    android:layout_below="@+id/BUTTON_SKILL7"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentStart="true" />
-
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:text="[?]"
-                    android:id="@+id/Q2"
-                    android:layout_gravity="left|top"
-                    android:layout_below="@+id/BUTTON_SKILL1"
-                    android:layout_alignStart="@+id/Q1" />
-
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:text="[?]"
-                    android:id="@+id/Q3"
-                    android:layout_gravity="left|top"
-                    android:layout_below="@+id/BUTTON_SKILL2"
-                    android:layout_alignStart="@+id/Q2" />
-
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:text="[?]"
-                    android:id="@+id/Q4"
-                    android:layout_gravity="left|top"
-                    android:layout_below="@+id/BUTTON_SKILL3"
-                    android:layout_alignParentEnd="true" />
-
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:text="[?]"
-                    android:id="@+id/Q5"
-                    android:layout_gravity="left|top"
-                    android:layout_below="@+id/BUTTON_SKILL4"
-                    android:layout_alignStart="@+id/Q4" />
-
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:text="[?]"
-                    android:id="@+id/Q6"
-                    android:layout_gravity="left|top"
-                    android:layout_below="@+id/BUTTON_SKILL5"
-                    android:layout_alignStart="@+id/Q5" />
-
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:text="[?]"
-                    android:id="@+id/Q7"
-                    android:layout_gravity="left|top"
-                    android:layout_below="@+id/BUTTON_SKILL6"
-                    android:layout_alignParentEnd="true" />
-
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:text="[?]"
-                    android:id="@+id/Q8"
-                    android:layout_gravity="left|bottom"
-                    android:layout_below="@+id/BUTTON_SKILL7"
-                    android:layout_alignStart="@+id/Q7" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="165dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="right|center_vertical"
-                android:id="@+id/__NEWSET"
-                android:visibility="gone">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="SELECT UP TO 8 SKILLS AND A"
-                    android:id="@+id/TEXT_SKILLSPROMPT"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_columnSpan="3"
                     android:textAlignment="center"
-                    android:textSize="20dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true" />
+                    android:singleLine="true"
+                    android:visibility="visible" />
 
-                <EditText
-                    android:layout_width="wrap_content"
+                <GridLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/TBOX_NEWNAME"
-                    android:text="NAME"
-                    android:layout_below="@+id/TEXT_SKILLSPROMPT"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentStart="true"
-                    android:textAlignment="center" />
+                    android:columnCount="2"
+                    android:rowCount="5"
+                    android:visibility="visible"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/SKILL_GRID">
 
-                <Button
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:layout_width="175dp"
+                        android:layout_height="45dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Skill 1"
+                        android:id="@+id/SKILL_1"
+                        android:layout_row="0"
+                        android:layout_column="0"
+                        android:textSize="25dp"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:layout_width="175dp"
+                        android:layout_height="45dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Skill 2"
+                        android:id="@+id/SKILL_2"
+                        android:layout_row="0"
+                        android:layout_column="1"
+                        android:textSize="25dp"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:layout_width="175dp"
+                        android:layout_height="45dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Skill 3"
+                        android:id="@+id/SKILL_3"
+                        android:layout_row="1"
+                        android:layout_column="0"
+                        android:textSize="25dp"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:layout_width="175dp"
+                        android:layout_height="45dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Skill 4"
+                        android:id="@+id/SKILL_4"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:textSize="25dp"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:layout_width="175dp"
+                        android:layout_height="45dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Skill 5"
+                        android:id="@+id/SKILL_5"
+                        android:layout_row="2"
+                        android:layout_column="0"
+                        android:textSize="25dp"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:layout_width="175dp"
+                        android:layout_height="45dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Skill 6"
+                        android:id="@+id/SKILL_6"
+                        android:layout_row="2"
+                        android:layout_column="1"
+                        android:textSize="25dp"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:layout_width="175dp"
+                        android:layout_height="45dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Skill 7"
+                        android:id="@+id/SKILL_7"
+                        android:layout_row="3"
+                        android:layout_column="0"
+                        android:textSize="25dp"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:layout_width="175dp"
+                        android:layout_height="45dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Skill 8"
+                        android:id="@+id/SKILL_8"
+                        android:layout_row="3"
+                        android:layout_column="1"
+                        android:textSize="25dp"
+                        android:textAlignment="center" />
+                </GridLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="263dp"
+                android:layout_gravity="center"
+                android:weightSum="1"
+                android:id="@+id/NEW_TEMPLATE_FRAME"
+                android:visibility="gone"
+                android:measureWithLargestChild="false">
+
+                <Space
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="SAVE"
-                    android:id="@+id/BUTTON_SAVESET"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="0.20" />
 
                 <ListView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/LIST_SKILLS"
-                    android:layout_below="@+id/TBOX_NEWNAME"
-                    android:layout_alignParentEnd="true"
-                    android:layout_above="@+id/BUTTON_SAVESET" />
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:id="@+id/FULL_SKILL_LIST"
+                    android:visibility="visible"
+                    android:layout_weight="0.70" />
 
-            </RelativeLayout>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/NEW_SET_NAME"
+                    android:text="name this skill set"
+                    android:textAlignment="center"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <Button
+                android:layout_width="328dp"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:id="@+id/SMENU_BUTTON"
+                android:layout_gravity="center_horizontal|bottom"
+                android:visibility="visible" />
 
         </FrameLayout>
 
@@ -592,7 +462,7 @@
             android:layout_height="359dp"
             android:layout_gravity="center_horizontal|bottom"
             android:id="@+id/MAIN_RMENU"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <FrameLayout
                 android:layout_width="match_parent"

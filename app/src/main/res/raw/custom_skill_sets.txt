@@ -1,0 +1,2 @@
+//format: arrayLoc|index|name|last_date|break_timer|work_timer|skill1_index,skill2_index,...skillN_index
+1|0|Custom Set 1||||1,2,4

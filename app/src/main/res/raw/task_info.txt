@@ -1,0 +1,7 @@
+// format: name|description|index|instructions|end_cond_type|end_cond_value|d1_file|d2_file|d3_file|d4_file|d5_file|dWTF_file|last_level
+0
+Word Recognition|The ability to recognize English words from nonsense.|0|As soon as you close this screen, "words" will begin to flash in front of you. Decide whether these are truly members of the English language or not, in fact, words at all.|3|countdown|30|WordRecognition1.txt|WordRecognition2.txt|WordRecognition3.txtWordRecognition4.txt|WordRecognition5.txt|WordRecognitionWTF.txt|1
+Test Skill 1|Test skill number one's description|1|Test instructions.|completion|10|TestOne1.txt|TestOne2.txt|TestOne3.txt|TestOne4.txt|TestOne5.txt|TestOneWTF.txt|1
+Test Skill 2|Test skill number two's description|2|Test instructions.|countdown|30|TestTwo1.txt|TestTwo2.txt|TestTwo3.txt|TestTwo4.txt|TestTwo5.txt|TestTwoWTF.txt|1
+Test Skill 3|Test skill number three's description|3|Test instructions.|completion|10|TestThree1.txt|TestThree2.txt|TestThree3.txt|TestThree4.txt|TestThree5.txt|TestThreeWTF.txt|1
+Test Skill 4|Test skill number four's description|4|Test instructions.|completion|10|TestFour1.txt|TestFour2.txt|TestFour3.txt|TestFour4.txt|TestFour5.txt|TestFourWTF.txt|1

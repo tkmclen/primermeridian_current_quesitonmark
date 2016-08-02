@@ -265,31 +265,69 @@
 
             </FrameLayout>
 
-            <Button
-                android:layout_width="309dp"
-                android:layout_height="75dp"
-                android:text="NEXT"
-                android:id="@+id/MAIN_TMENU_NEXT"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center_horizontal|bottom" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:weightSum="1"
+                android:id="@+id/MAIN_TMENU_BUTTONS">
+
+                <Button
+                    android:layout_width="175dp"
+                    android:layout_height="75dp"
+                    android:text="BACK"
+                    android:id="@+id/MAIN_TMENU_BACK"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="left"
+                    android:visibility="visible" />
+
+                <Button
+                    android:layout_width="175dp"
+                    android:layout_height="75dp"
+                    android:text="NEXT"
+                    android:id="@+id/MAIN_TMENU_NEXT"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:visibility="visible"
+                    android:layout_gravity="right" />
+
+            </LinearLayout>
 
         </FrameLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="358dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|bottom"
             android:id="@+id/MAIN_SMENU"
             android:visibility="visible"
             android:touchscreenBlocksFocus="false">
 
-            <FrameLayout
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="247dp"
-                android:layout_gravity="center"
+                android:layout_height="323dp"
+                android:layout_gravity="center_horizontal|bottom"
                 android:id="@+id/MAIN_SMENU_START"
+                android:weightSum="1"
                 android:visibility="gone">
+
+                <Button
+                    android:layout_width="326dp"
+                    android:layout_height="68dp"
+                    android:text="Create New Skill Set"
+                    android:id="@+id/MAIN_SMENU_CREATE_SET_BUTTON"
+                    android:layout_gravity="center_horizontal|bottom" />
+
+                <Button
+                    android:layout_width="326dp"
+                    android:layout_height="68dp"
+                    android:text="CUSTOM SKILL SETS"
+                    android:id="@+id/MAIN_SMENU_CUSTOM_SET_BUTTON"
+                    android:layout_gravity="center"
+                    android:visibility="visible" />
 
                 <Button
                     android:layout_width="326dp"
@@ -298,20 +336,20 @@
                     android:id="@+id/MAIN_SMENU_DEFAULT_SET_BUTTON"
                     android:layout_gravity="center_horizontal|top" />
 
-                <Button
-                    android:layout_width="326dp"
-                    android:layout_height="68dp"
-                    android:text="CUSTOM SKILL SETS"
-                    android:id="@+id/MAIN_SMENU_CUSTOM_SET_BUTTON"
-                    android:layout_gravity="center" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="0.35"
+                    android:id="@+id/MAIN_SMENU_START_SPACE" />
 
                 <Button
-                    android:layout_width="326dp"
-                    android:layout_height="68dp"
-                    android:text="Create New Skill Set"
-                    android:id="@+id/MAIN_SMENU_CREATE_SET_BUTTON"
-                    android:layout_gravity="center_horizontal|bottom" />
-            </FrameLayout>
+                    android:layout_width="154dp"
+                    android:layout_height="wrap_content"
+                    android:text="Back"
+                    android:id="@+id/MAIN_SMENU_START_BACK"
+                    android:layout_gravity="center_horizontal" />
+            </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
@@ -320,12 +358,14 @@
                 android:layout_gravity="center"
                 android:weightSum="1"
                 android:id="@+id/MAIN_SMENU_TEMPLATE_SKILLS_FRAME"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <ListView
                     android:layout_width="wrap_content"
                     android:layout_height="193dp"
-                    android:id="@+id/MAIN_SMENU_SETS_LIST" />
+                    android:id="@+id/MAIN_SMENU_SETS_LIST"
+                    android:scrollIndicators="right"
+                    android:smoothScrollbar="true" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -442,52 +482,31 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:weightSum="1"
-                    android:layout_gravity="center"
-                    android:id="@+id/MAIN_SMENU_DEFAULT_SETS_BUTTONS_FRAME"
-                    android:visibility="gone">
-
-                    <Button
-                        android:layout_width="135dp"
-                        android:layout_height="wrap_content"
-                        android:text="BACK"
-                        android:id="@+id/MAIN_SMENU_DEFAULT_SETS_BACK"
-                        android:layout_gravity="center_horizontal" />
-
-                    <Button
-                        android:layout_width="127dp"
-                        android:layout_height="wrap_content"
-                        android:text="NEXT"
-                        android:id="@+id/MAIN_SMENU_DEFAULT_SETS_NEXT" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:weightSum="1"
                     android:layout_gravity="center_horizontal"
-                    android:id="@+id/MAIN_SMENU_CUSTOM_SETS_BUTTONS_FRAME" >
+                    android:id="@+id/MAIN_SMENU_TEMPLATES_BUTTONS"
+                    android:visibility="visible">
 
                     <Button
                         android:layout_width="135dp"
                         android:layout_height="wrap_content"
                         android:text="BACK"
-                        android:id="@+id/MAIN_SMENU_CUSTOM_SETS_BACK"
+                        android:id="@+id/MAIN_SMENU_TEMPLATES_BACK"
                         android:layout_gravity="center_horizontal" />
 
                     <Button
                         android:layout_width="85dp"
                         android:layout_height="wrap_content"
                         android:text="Delete"
-                        android:id="@+id/MAIN_SMENU_CUSTOM_SETS_DELETE" />
+                        android:id="@+id/MAIN_SMENU_TEMPLATES_DELETE"
+                        android:visibility="gone" />
 
                     <Button
                         android:layout_width="127dp"
                         android:layout_height="wrap_content"
                         android:text="NEXT"
-                        android:id="@+id/MAIN_SMENU_CUSTOM_SETS_NEXT" />
+                        android:id="@+id/MAIN_SMENU_TEMPLATES_NEXT" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -499,7 +518,7 @@
                 android:layout_gravity="center"
                 android:weightSum="1"
                 android:id="@+id/MAIN_SMENU_NEW_TEMPLATE_FRAME"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:measureWithLargestChild="false">
 
                 <EditText
@@ -829,7 +848,7 @@
                 android:layout_width="162dp"
                 android:layout_height="63dp"
                 android:text="NEXT"
-                android:id="@+id/TUTORIAL_START__NEXT"
+                android:id="@+id/TUTORIAL_START_NEXT"
                 android:layout_gravity="center_horizontal|bottom"
                 android:visibility="visible" />
         </FrameLayout>

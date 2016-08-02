@@ -1,11 +1,7 @@
 package com.tkmclen.primermeridian;
 
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,27 +9,122 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Space;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class MainActivity extends AppCompatActivity {
+
+    //////////////////////////////////////////////ALL DISPLAY ELEMENTS//////////////////////////////////////////////
+
+    //////////////////MAIN//////////////////
+    final FrameLayout main = (FrameLayout) findViewById(R.id.MAIN);
+       final TextView mainBannerText = (TextView) findViewById(R.id.MAIN_BANNER_TEXT);
+
+       //MAIN HOME//
+       final LinearLayout mainHome = (LinearLayout) findViewById(R.id.MAIN_HOME);
+          final Button mainHomeButtonNew = (Button) findViewById(R.id.MAIN_HOME_BUTTON_NEW);
+          final Button mainHomeButtonRecent = (Button) findViewById(R.id.MAIN_HOME_BUTTON_RECENT);
+          final Button mainHomeButtonTry = (Button) findViewById(R.id.MAIN_HOME_BUTTON_TRY);
+          final Space mainHomeSpace = (Space) findViewById(R.id.MAIN_HOME_SPACE);
+          final Button mainHomeButtonTutorial = (Button) findViewById(R.id.MAIN_HOME_BUTTON_TUTORIAL);
+
+       //MAIN TMENU//
+       final FrameLayout mainTMenu = (FrameLayout) findViewById(R.id.MAIN_TMENU);
+          final FrameLayout mainTMenuBreakTimerFrame = (FrameLayout) findViewById(R.id.MAIN_TMENU_BREAKTIMER_FRAME);
+             final TextView mainTMenuTextBreakPrompt = (TextView) findViewById(R.id.MAIN_TMENU_TEXT_BREAKPROMPT);
+             final FrameLayout mainTMenuBreakTimerDisplayGrid = (FrameLayout) findViewById(R.id.MAIN_TMENU_BREAKTIMER_DISPLAY_GRID);
+                final EditText mainTMenuBreakHr = (EditText) findViewById(R.id.MAIN_TMENU_BREAK_HR);
+                final TextView mainTMenuBreakColon1 = (TextView) findViewById(R.id.MAIN_TMENU_BREAK_COLON1);
+                final EditText mainTMenuBreakMin = (EditText) findViewById(R.id.MAIN_TMENU_BREAK_MIN);
+                final TextView mainTMenuBreakColon2 = (TextView) findViewById(R.id.MAIN_TMENU_BREAK_COLON2);
+                final EditText mainTMenuBreakSec = (EditText) findViewById(R.id.MAIN_TMENU_BREAK_SEC);
+          final FrameLayout mainTMenuWorkTimerFrame = (FrameLayout) findViewById(R.id.MAIN_TMENU_WORKTIMER_FRAME);
+             final FrameLayout mainTMenuWorkTimerDisplayGrid = (FrameLayout) findViewById(R.id.MAIN_TMENU_WORKTIMER_DISPLAY_GRID);
+             final CheckBox mainTMenuBoxWorkPrompt = (CheckBox) findViewById(R.id.MAIN_TMENU_BOX_WORKPROMPT);
+                final EditText mainTmenuWorkHr = (EditText) findViewById(R.id.MAIN_TMENU_WORK_HR);
+                final TextView mainTMenuWorkColon1 = (TextView) findViewById(R.id.MAIN_TMENU_WORK_COLON1);
+                final EditText mainTmenuWorkMin = (EditText) findViewById(R.id.MAIN_TMENU_WORK_MIN);
+                final TextView mainTMenuWorkColon2 = (TextView) findViewById(R.id.MAIN_TMENU_WORK_COLON2);
+                final EditText mainTmenuWorkSec = (EditText) findViewById(R.id.MAIN_TMENU_WORK_SEC);
+          final Button mainTmenuNext = (Button) findViewById(R.id.MAIN_TMENU_NEXT);
+
+    //MAIN SMENU//
+    final FrameLayout mainSMenu = (FrameLayout) findViewById(R.id.MAIN_SMENU);
+       final FrameLayout mainSMenuStart = (FrameLayout) findViewById(R.id.MAIN_SMENU_START);
+          final Button mainSMenuDefaultSetButton = (Button) findViewById(R.id.MAIN_SMENU_DEFAULT_SET_BUTTON);
+          final Button mainSMenuCustomSetButton = (Button) findViewById(R.id.MAIN_SMENU_CUSTOM_SET_BUTTON);
+          final Button mainSMenuCreateSetButton = (Button) findViewById(R.id.MAIN_SMENU_CREATE_SET_BUTTON);
+       final LinearLayout mainSMenuTemplateSkillsFrame = (LinearLayout) findViewById(R.id.MAIN_SMENU_TEMPLATE_SKILLS_FRAME);
+          final ListView mainSMenuSetsList = (ListView) findViewById(R.id.MAIN_SMENU_SETS_LIST);
+          final TextView mainSMenuSkillsHeader = (TextView) findViewById(R.id.MAIN_SMENU_SKILLS_HEADER);
+          final GridLayout mainSMenuSkillGrid = (GridLayout) findViewById(R.id.MAIN_SMENU_SKILL_GRID);
+             final TextView mainSMenuskill1 = (TextView) findViewById(R.id.MAIN_SMENU_SKILL_1);
+             final TextView mainSMenuskill2 = (TextView) findViewById(R.id.MAIN_SMENU_SKILL_2);
+             final TextView mainSMenuskill3 = (TextView) findViewById(R.id.MAIN_SMENU_SKILL_3);
+             final TextView mainSMenuskill4 = (TextView) findViewById(R.id.MAIN_SMENU_SKILL_4);
+             final TextView mainSMenuskill5 = (TextView) findViewById(R.id.MAIN_SMENU_SKILL_5);
+             final TextView mainSMenuskill6 = (TextView) findViewById(R.id.MAIN_SMENU_SKILL_6);
+             final TextView mainSMenuskill7 = (TextView) findViewById(R.id.MAIN_SMENU_SKILL_7);
+             final TextView mainSMenuskill8 = (TextView) findViewById(R.id.MAIN_SMENU_SKILL_8);
+          final LinearLayout mainSMenuDefaultSetButtonsFrame = (LinearLayout) findViewById(R.id.MAIN_SMENU_DEFAULT_SETS_BUTTONS_FRAME);
+             final Button mainSMenuDefaultSetsBack = (Button) findViewById(R.id.MAIN_SMENU_DEFAULT_SETS_BACK);
+             final Button mainSMenuDefaultSetsNext = (Button) findViewById(R.id.MAIN_SMENU_DEFAULT_SETS_NEXT);
+          final LinearLayout mainSMenuCustomSetsButtonsFrame = (LinearLayout) findViewById(R.id.MAIN_SMENU_CUSTOM_SETS_BUTTONS_FRAME);
+             final Button mainSMenuCustomSetsBack = (Button) findViewById(R.id.MAIN_SMENU_CUSTOM_SETS_BACK);
+             final Button mainSMenuCustomSetsDelete = (Button) findViewById(R.id.MAIN_SMENU_CUSTOM_SETS_DELETE);
+             final Button mainSMenuCustomSetsNext = (Button) findViewById(R.id.MAIN_SMENU_CUSTOM_SETS_NEXT);
+       final LinearLayout mainSMenuNewTemplateFrame = (LinearLayout) findViewById(R.id.MAIN_SMENU_NEW_TEMPLATE_FRAME);
+          final EditText mainSmenuNewSetName = (EditText) findViewById(R.id.MAIN_SMENU_NEW_SET_NAME);
+          final ListView mainSMenuFullSkillList = (ListView) findViewById(R.id.MAIN_SMENU_FULL_SKILL_LIST);
+          final LinearLayout mainSMenuNewSetButtons = (LinearLayout) findViewById(R.id.MAIN_SMENU_NEW_SET_BUTTONS);
+             final Button mainSMenuNewSetBack = (Button) findViewById(R.id.MAIN_SMENU_NEW_SET_BACK);
+             final Button mainSMenuNewSetNext = (Button) findViewById(R.id.MAIN_SMENU_NEW_SET_NEXT);
+    //MAIN RMENU//
+    final FrameLayout mainRMenu = (FrameLayout) findViewById(R.id.MAIN_RMENU);
+       final FrameLayout mainRMenuButtons = (FrameLayout) findViewById(R.id.MAIN_RMENU_BUTTONS);
+          final Button mainRMenuButton1 = (Button) findViewById(R.id.MAIN_RMENU_BUTTON1);
+          final Button mainRMenuButton2 = (Button) findViewById(R.id.MAIN_RMENU_BUTTON2);
+          final Button mainRMenuButton3 = (Button) findViewById(R.id.MAIN_RMENU_BUTTON3);
+          final Button mainRMenuButton4 = (Button) findViewById(R.id.MAIN_RMENU_BUTTON4);
+       final Button mainRMenuButtonBack = (Button) findViewById(R.id.MAIN_RMENU_BUTTON_BACK);
+       final TextView mainRMenuText = (TextView) findViewById(R.id.MAIN_RMENU_TEXT);
+
+    //MAIN TIMER//
+    final FrameLayout mainTimer = (FrameLayout) findViewById(R.id.MAIN_TIMER);
+       final TextView mainTimerBreakText = (TextView) findViewById(R.id.MAIN_TIMER_BREAK_TEXT);
+       final TextView mainTimerWorkText = (TextView) findViewById(R.id.MAIN_TIMER_WORK_TEXT);
+       final GridLayout mainTimerDisplayGrid = (GridLayout) findViewById(R.id.MAIN_TIMER_DISPLAY_GRID);
+          final TextView mainTimerHr = (TextView) findViewById(R.id.MAIN_TIMER_HR);
+          final TextView mainTimerColon1 = (TextView) findViewById(R.id.MAIN_TIMER_COLON1);
+          final TextView mainTimerMin = (TextView) findViewById(R.id.MAIN_TIMER_MIN);
+          final TextView mainTimerColon2 = (TextView) findViewById(R.id.MAIN_TIMER_COLON2);
+          final TextView mainTimerSec = (TextView) findViewById(R.id.MAIN_TIMER_SEC);
+       final Button mainTimerStartNext = (Button) findViewById(R.id.MAIN_TIMER_START_NEXT);
+
+    //////////////////TASKS/////////////////
+    final FrameLayout tasks = (FrameLayout) findViewById(R.id.TASKS);
+       final FrameLayout taskInfo = (FrameLayout) findViewById(R.id.TASK_INFO);
+       final RelativeLayout taskQA = (RelativeLayout) findViewById(R.id.TASK_QA);
+
+    //////////////////TUTORIAL//////////////
+    final FrameLayout tutorial = (FrameLayout) findViewById(R.id.TUTORIAL);
+       final FrameLayout tutorialStart = (FrameLayout) findViewById(R.id.TUTORIAL_START);
+          final Button tutorialStartButtonNext = (Button) findViewById(R.id.TUTORIAL_START_BUTTON_NEXT);
+       final FrameLayout tutorialSlides = (FrameLayout) findViewById(R.id.TUTORIAL_SLIDES);
+
+    //////////////////////////////////////////////END DISPLAY ELEMENTS//////////////////////////////////////////////
 
     boolean firstTimeLaunched;
 
@@ -46,21 +137,19 @@ public class MainActivity extends AppCompatActivity {
     SkillSet[] defaultSkillSetArray;
     SkillSet[] customSkillSetArray;
 
-    int Frame;
-    int SubFrame;
+    String Frame;
+    String SubFrame;
 
     SkillSet currentSkillSet;
     Task currentTask;
     Question currentQuestion;
-    Timer mainTimer;
 
+    Timer timer;
     String breakHrInput = "00", breakMinInput = "20", breakSecInput = "00";
-
-    boolean workTimerOn = true;
+    boolean workTimerOn = false;
     String workHrInput = "00", workMinInput = "40", workSecInput = "00";
 
-
-
+    TextView[] skillDisplay = new TextView[8];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,8 +162,8 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        DisplayFrame(Frame = 1);
-        DisplaySubFrame(SubFrame = 1);
+        DisplayFrame(Frame = "MENU");
+        DisplaySubFrame(SubFrame = "MENU_MAIN");
 
     }
 
@@ -144,45 +233,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void DisplayFrame(int f) {
-        /////////////////////////////
-        //    1      2      3      //
-        //   MENU, TASK, TUTORIAL  //
-        /////////////////////////////
-        FrameLayout menuFrame = (FrameLayout) findViewById(R.id.MAIN);
-        FrameLayout taskFrame = (FrameLayout) findViewById(R.id.TASKS);
-        FrameLayout tutorialFrame = (FrameLayout) findViewById(R.id.TUTORIAL);
-
+    public void DisplayFrame(String f) {
         switch (Frame) {
-            case 1: {
-                menuFrame.setVisibility(View.GONE);
+            case "MENU": {
+                main.setVisibility(View.GONE);
                 break;
             }
 
-            case 2: {
-                taskFrame.setVisibility(View.GONE);
+            case "TASK": {
+                tasks.setVisibility(View.GONE);
                 break;
             }
 
-            case 3: {
-                tutorialFrame.setVisibility(View.GONE);
+            case "TUTORIAL": {
+                tutorial.setVisibility(View.GONE);
                 break;
             }
         }
 
         switch (f) {
-            case 1: {
-                menuFrame.setVisibility(View.VISIBLE);
+            case "MENU": {
+                main.setVisibility(View.VISIBLE);
                 break;
             }
 
-            case 2: {
-                taskFrame.setVisibility(View.VISIBLE);
+            case "TASK": {
+                tasks.setVisibility(View.VISIBLE);
                 break;
             }
 
-            case 3: {
-                tutorialFrame.setVisibility(View.VISIBLE);
+            case "TUTORIAL": {
+                tutorial.setVisibility(View.VISIBLE);
                 break;
             }
         }
@@ -190,147 +271,127 @@ public class MainActivity extends AppCompatActivity {
         Frame = f;
     }
 
-    public void DisplaySubFrame(int s) {
-        ///////////////////////////////////////////////////////////////////////
-        //      1           2          3            4              5         //
-        //  HOME_MENU, TIMER_MENU, SKILL_MENU, TIMER_DISPLAY, PREV_MENU      //
-        //                                                                   //
-        //      6              7              8                   9          //
-        //  TASK_INFO       TASK_QA     TUTORIAL_START     TUTORIAL_SLIDES   //
-        ///////////////////////////////////////////////////////////////////////
-        LinearLayout homeMenu = (LinearLayout) findViewById(R.id.MAIN_HOME);
-        FrameLayout timerMenu = (FrameLayout) findViewById(R.id.MAIN_TMENU);
-        FrameLayout skillsetMenu = (FrameLayout) findViewById(R.id.MAIN_SMENU);
-        FrameLayout mainTimer = (FrameLayout) findViewById(R.id.MAIN_TIMER);
-        FrameLayout recentMenu = (FrameLayout) findViewById(R.id.MAIN_RMENU);
-        FrameLayout taskInfo = (FrameLayout) findViewById(R.id.TASK_INFO);
-        RelativeLayout taskQA = (RelativeLayout) findViewById(R.id.TASK_QA);
-        FrameLayout tutorialStart = (FrameLayout) findViewById(R.id.TUTORIAL_START);
-        FrameLayout tutorialSlides = (FrameLayout) findViewById(R.id.TUTORIAL_SLIDES);
-
+    public void DisplaySubFrame(String s) {
         switch (SubFrame) {
-            case 1: {
-                homeMenu.setVisibility(View.GONE);
+            case "MENU_MAIN": {
+                mainHome.setVisibility(View.GONE);
                 break;
             }
-            case 2: {
-                timerMenu.setVisibility(View.GONE);
+            case "MENU_TIMER": {
+                mainTMenu.setVisibility(View.GONE);
                 break;
             }
-            case 3: {
-                skillsetMenu.setVisibility(View.GONE);
+            case "MENU_SKILL": {
+                mainSMenu.setVisibility(View.GONE);
                 break;
             }
-            case 4: {
+            case "TIMER": {
                 mainTimer.setVisibility(View.GONE);
                 break;
             }
-            case 5: {
-                recentMenu.setVisibility(View.GONE);
+            case "MENU_RECENT": {
+                mainRMenu.setVisibility(View.GONE);
                 break;
             }
-            case 6: {
+            case "TASK_INFO": {
                 taskInfo.setVisibility(View.GONE);
                 break;
             }
-            case 7: {
+            case "TASK_QA": {
                 taskQA.setVisibility(View.GONE);
                 break;
             }
-            case 8: {
+            case "TUTORIAL_START": {
                 tutorialStart.setVisibility(View.GONE);
                 break;
             }
-            case 9: {
+            case "TUTORIAL_SLIDES": {
                 tutorialSlides.setVisibility(View.GONE);
                 break;
             }
         }
 
         switch (s) {
-            case 1: {
-                homeMenu.setVisibility(View.VISIBLE);
+            case "MENU_MAIN": {
                 homeMenuSetup();
+                mainHome.setVisibility(View.VISIBLE);
                 break;
             }
-            case 2: {
-                timerMenu.setVisibility(View.VISIBLE);
+            case "MENU_TIMER": {
                 timerMenuSetup();
+                mainTMenu.setVisibility(View.VISIBLE);
                 break;
             }
-            case 3: {
-                skillsetMenu.setVisibility(View.VISIBLE);
-                skillsetMenuSetup();
+            case "MENU_SKILL": {
+                skillSetMenuSetup();
+                mainSMenu.setVisibility(View.VISIBLE);
                 break;
             }
-            case 4: {
+            case "MENU_RECENT": {
+                mainRMenu.setVisibility(View.VISIBLE);
+
+
+                mainRMenuButton1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //load recent timer info
+                        DisplaySubFrame("MENU_SKILL");
+                    }
+                });
+                mainRMenuButton2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //load recent timer info
+                        DisplaySubFrame("MENU_SKILL");
+                    }
+                });
+                mainRMenuButton3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //load recent timer info
+                        DisplaySubFrame("MENU_SKILL");
+                    }
+                });
+                mainRMenuButton4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //load recent timer info
+                        DisplaySubFrame("MENU_SKILL");
+                    }
+                });
+                mainRMenuButtonBack.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        DisplaySubFrame("MENU_MAIN");
+                    }
+                });
+                break;
+            }
+            case "TIMER": {
                 mainTimer.setVisibility(View.VISIBLE);
                 break;
             }
-            case 5: {
-                recentMenu.setVisibility(View.VISIBLE);
-                Button rmenu_r1 = (Button) findViewById(R.id.MAIN_RMENU_BUTTON1);
-                Button rmenu_r2 = (Button) findViewById(R.id.MAIN_RMENU_BUTTON2);
-                Button rmenu_r3 = (Button) findViewById(R.id.MAIN_RMENU_BUTTON3);
-                Button rmenu_r4 = (Button) findViewById(R.id.MAIN_RMENU_BUTTON4);
-                Button rmenu_ButtonBack = (Button) findViewById(R.id.MAIN_RMENU_BUTTON_BACK);
 
-                rmenu_r1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        //load recent timer info
-                        DisplaySubFrame(3);
-                    }
-                });
-                rmenu_r2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        //load recent timer info
-                        DisplaySubFrame(3);
-                    }
-                });
-                rmenu_r3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        //load recent timer info
-                        DisplaySubFrame(3);
-                    }
-                });
-                rmenu_r4.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        //load recent timer info
-                        DisplaySubFrame(3);
-                    }
-                });
-                rmenu_ButtonBack.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        DisplaySubFrame(1);
-                    }
-                });
-                break;
-            }
-            case 6: {
+            case "TASK_INFO": {
                 taskInfo.setVisibility(View.VISIBLE);
                 break;
             }
-            case 7: {
+            case "TASK_QA": {
                 taskQA.setVisibility(View.VISIBLE);
                 break;
             }
-            case 8: {
+
+            case "TUTORIAL_START": {
                 tutorialStart.setVisibility(View.VISIBLE);
-                Button tutorialStart_buttonNext = (Button) findViewById(R.id.TUTORIAL_START_BUTTON_NEXT);
-                tutorialStart_buttonNext.setOnClickListener(new View.OnClickListener() {
+                tutorialStartButtonNext.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        DisplaySubFrame(9);
+                        DisplaySubFrame("TUTORIAL_SLIDES");
                     }
                 });
                 break;
             }
-            case 9: {
+            case "TUTORIAL_SLIDES": {
                 tutorialSlides.setVisibility(View.VISIBLE);
                 break;
             }
@@ -340,103 +401,119 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void homeMenuSetup() {
-        final Button homeMenu_ButtonNew = (Button) findViewById(R.id.MAIN_HOME_BUTTON_NEW);
-        final Button homeMenu_ButtonRecent = (Button) findViewById(R.id.MAIN_HOME_BUTTON_RECENT);
-        final Button homeMenu_ButtonTry = (Button) findViewById(R.id.MAIN_HOME_BUTTON_TRY);
-        final Button homeMenu_ButtonTutorial = (Button) findViewById(R.id.MAIN_HOME_BUTTON_TUTORIAL);
-
-        homeMenu_ButtonNew.setOnClickListener(new View.OnClickListener() {
+        mainHomeButtonNew.setOnClickListener(new View.OnClickListener() {
             @Override
 
             public void onClick(View view) {
-                DisplaySubFrame(2);
+                DisplaySubFrame("MENU_TIMER");
             }
         });
 
-        homeMenu_ButtonRecent.setOnClickListener(new View.OnClickListener() {
+        mainHomeButtonRecent.setOnClickListener(new View.OnClickListener() {
             @Override
 
             public void onClick(View view) {
-                DisplaySubFrame(5);
+                DisplaySubFrame("MENU_RECENT");
             }
         });
 
-        homeMenu_ButtonTry.setOnClickListener(new View.OnClickListener() {
+        mainHomeButtonTry.setOnClickListener(new View.OnClickListener() {
             @Override
 
             public void onClick(View view) {
-                //load a 0 onto the timer
-                DisplaySubFrame(3);
+                timer.setTimer(0);
+                DisplaySubFrame("MENU_SKILL");
             }
         });
 
-        homeMenu_ButtonTutorial.setOnClickListener(new View.OnClickListener() {
+        mainHomeButtonTutorial.setOnClickListener(new View.OnClickListener() {
             @Override
 
             public void onClick(View view) {
-                DisplayFrame(3);
+                DisplayFrame("TUTORIAL");
             }
         });
     }
 
     public void timerMenuSetup() {
-        final EditText breaktimer_hr = (EditText) findViewById(R.id.BREAK_HR);
-        final EditText breaktimer_min = (EditText) findViewById(R.id.BREAK_MIN);
-        final EditText breaktimer_sec = (EditText) findViewById(R.id.BREAK_SEC);
+        mainTMenuBreakHr.setText(breakHrInput);
+        mainTMenuBreakMin.setText(breakMinInput);
+        mainTMenuBreakSec.setText(breakSecInput);
 
-        final CheckBox worktimer_checkbox = (CheckBox) findViewById(R.id.BOX_WORKPROMPT);
-        final EditText worktimer_hr = (EditText) findViewById(R.id.WORK_HR);
-        final EditText worktimer_min = (EditText) findViewById(R.id.WORK_MIN);
-        final EditText worktimer_sec = (EditText) findViewById(R.id.WORK_SEC);
+        mainTMenuBoxWorkPrompt.setChecked(workTimerOn);
+        mainTmenuWorkHr.setText(workHrInput);
+        mainTmenuWorkMin.setText(workMinInput);
+        mainTmenuWorkSec.setText(workSecInput);
 
-        Button tmenu_next = (Button) findViewById(R.id.MAIN_TMENU_NEXT);
-
-        breaktimer_hr.setText(breakHrInput);
-        breaktimer_min.setText(breakMinInput);
-        breaktimer_sec.setText(breakSecInput);
-
-        if (workTimerOn)
-            worktimer_checkbox.setChecked(workTimerOn);
-        worktimer_hr.setText(workHrInput);
-        worktimer_min.setText(workMinInput);
-        worktimer_sec.setText(workSecInput);
-
-
-        tmenu_next.setOnClickListener(new View.OnClickListener() {
+        mainTmenuNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                breakHrInput = breaktimer_hr.getText().toString();
-                breakMinInput = breaktimer_min.getText().toString();
-                breakSecInput = breaktimer_sec.getText().toString();
-
-                workTimerOn = worktimer_checkbox.isChecked();
-                workHrInput = worktimer_hr.getText().toString();
-                workMinInput = worktimer_min.getText().toString();
-                workSecInput = worktimer_sec.getText().toString();
-
-                DisplaySubFrame(3);
+                breakHrInput = mainTMenuBreakHr.getText().toString();
+                breakMinInput = mainTMenuBreakMin.getText().toString();
+                breakSecInput = mainTMenuBreakSec.getText().toString();
+                workTimerOn = mainTMenuBoxWorkPrompt.isChecked();
+                if(workTimerOn) {
+                    workHrInput = mainTmenuWorkHr.getText().toString();
+                    workMinInput = mainTmenuWorkMin.getText().toString();
+                    workSecInput = mainTmenuWorkSec.getText().toString();
+                }
+                DisplaySubFrame("MENU_SKILL");
             }
         });
 
     }
 
-    public void skillsetMenuSetup() {
-        final LinearLayout templateSkillsFrame = (LinearLayout) findViewById(R.id.TEMPLATE_SKILLS_FRAME);
-        final LinearLayout newTemplateFrame = (LinearLayout) findViewById(R.id.NEW_TEMPLATE_FRAME);
-        final Button smenuButton = (Button) findViewById(R.id.SMENU_BUTTON);
+    public void skillSetMenuSetup(){
 
-        templateSkillsFrame.setVisibility(View.GONE);
-        newTemplateFrame.setVisibility(View.GONE);
+
+        mainSMenuTemplateSkillsFrame.setVisibility(View.GONE);
+        mainSMenuNewTemplateFrame.setVisibility(View.GONE);
 
         spinnerInit();
 
 
-        smenuButton.setOnClickListener(new View.OnClickListener() {
+        mainSmenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DisplaySubFrame(4);
+                DisplaySubFrame("MAIN_TIMER");
             }
         });
+    }
+
+    public void skillSetStartSetup(){
+        skillDisplay[0] = mainSMenuskill1;
+        skillDisplay[1] = mainSMenuskill2;
+        skillDisplay[2] = mainSMenuskill3;
+        skillDisplay[3] = mainSMenuskill4;
+        skillDisplay[4] = mainSMenuskill5;
+        skillDisplay[5] = mainSMenuskill6;
+        skillDisplay[6] = mainSMenuskill7;
+        skillDisplay[7] = mainSMenuskill8;
+
+        mainSMenuDefaultSetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainSMenuStart.setVisibility(View.GONE);
+                mainSMenuCustomSetsButtonsFrame.setVisibility(View.GONE);
+                mainSMenuTemplateSkillsFrame.setVisibility(View.VISIBLE);
+                mainSMenuDefaultSetButtonsFrame.setVisibility(View.VISIBLE);
+            }
+        });
+        mainSMenuCustomSetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainSMenuTemplateSkillsFrame.setVisibility(View.GONE);
+                DisplaySubFrame("MENU_SKILL");
+            }
+        });
+        mainSMenuCreateSetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainSMenuTemplateSkillsFrame.setVisibility(View.GONE);
+                DisplaySubFrame("MENU_SKILL");
+            }
+        });
+        mainSMenuStart.setVisibility(View.VISIBLE);
     }
 
     public void spinnerInit() {
@@ -482,38 +559,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void displaySkillSet(int arrayLoc, int index){
-        final TextView skill1 = (TextView) findViewById(R.id.SKILL_1);
-        final TextView skill2 = (TextView) findViewById(R.id.SKILL_2);
-        final TextView skill3 = (TextView) findViewById(R.id.SKILL_3);
-        final TextView skill4 = (TextView) findViewById(R.id.SKILL_4);
-        final TextView skill5 = (TextView) findViewById(R.id.SKILL_5);
-        final TextView skill6 = (TextView) findViewById(R.id.SKILL_6);
-        final TextView skill7 = (TextView) findViewById(R.id.SKILL_7);
-        final TextView skill8 = (TextView) findViewById(R.id.SKILL_8);
-
-        TextView[] skillDisplay = new TextView[8];
-        skillDisplay[0] = skill1;
-        skillDisplay[1] = skill2;
-        skillDisplay[2] = skill3;
-        skillDisplay[3] = skill4;
-        skillDisplay[4] = skill5;
-        skillDisplay[5] = skill6;
-        skillDisplay[6] = skill7;
-        skillDisplay[7] = skill8;
-
-        for(int i = 0; i < 8; i++)
-            skillDisplay[i].setVisibility(View.INVISIBLE);
-
         String[] skillsInSet;
         if(arrayLoc == 0)
             skillsInSet = defaultSkillSetArray[index].skills;
-        else
+        else(arrayLoc == 1)
             skillsInSet = customSkillSetArray[index].skills;
 
         for(int i = 0; i < skillsInSet.length; i++){
             skillDisplay[i].setText(taskArray[Integer.parseInt(skillsInSet[i])].skill_name);
             skillDisplay[i].setVisibility(View.VISIBLE);
         }
+    }
+
+    public void hideSkillSet(){
+        for(int i = 0; i < 8; i++)
+            skillDisplay[i].setVisibility(View.INVISIBLE);
     }
 
     public void newSkillSet(){

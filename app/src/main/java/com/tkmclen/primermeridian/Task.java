@@ -6,7 +6,7 @@ package com.tkmclen.primermeridian;
 public class Task {
     //String .txt store format:
     // name|description|index|instructions|end_cond_type|end_cond_value|d1_file|d2_file|
-    //      d3_file|d4_file|d5_file|dWTF_file|last_level
+    //      d3_file|d4_file|d5_file|dWTF_file|user_data_file
 
     //static data delimited with "|" (bar)
     Task(String unparsed_task_info){
@@ -25,30 +25,26 @@ public class Task {
         this.diff_4_file = tokens[9];
         this.diff_5_file = tokens[10];
         this.diff_wtf_file = tokens[11];
-        this.last_level = Integer.parseInt(tokens[12]);
+        this.user_data_file = tokens[12];
     }
-    //////////////////////////ALL PARSED AND ASSIGNED FROM TASKS.TXT FILE//////////////////////////
-    //skill information
+
+    Task(){}
+
     String skill_name;
     String description_of_skill;
 
-    //task data
-    int index;  //place found in main's "Tasks" array;
-
+    int index;
     int last_level;
 
     String end_condition_type;
     int end_condition;
-
     String task_instructions;
 
     //locations of files to load question strings from
     String diff_1_file, diff_2_file, diff_3_file,
             diff_4_file, diff_5_file, diff_wtf_file;
 
-    //String arrays to load unparsed questions from thier .txt files
-    String[] diff_1_questions, diff_2_questions, diff_3_questions,
-            diff_4_questions, diff_5_questions, diff_wtf_questions;
+    String user_data_file;
 
     void loadQuestions(){
         load_diff_1(diff_1_file);
@@ -76,9 +72,5 @@ public class Task {
     void load_diff_wtf(String diff_wtf_filename){
 
     }
-
-    Question current_question; //current question being asked
-
-
 
 }

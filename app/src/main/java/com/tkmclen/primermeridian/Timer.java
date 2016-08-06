@@ -22,42 +22,46 @@ public class Timer{
     boolean dinged = false; //has timer finished
 
     void start() {
-        running = true;
+        this.running = true;
         long startTimer = System.currentTimeMillis();
-        while (running) {
-            counter = start_time - ((System.currentTimeMillis() - startTimer) / 1000);
+        while (this.running) {
+            this.counter = this.start_time - ((System.currentTimeMillis() - startTimer) / 1000);
             if (counter <= 0) {
-                counter = 0;
-                ding();
-                running = false;
+                this.counter = 0;
+                this.ding();
+                this.running = false;
             }
         }
     }
     void pause() {
-        running = false;
-        start_time = counter;
+        this.running = false;
+        this.start_time = this.counter;
     }
     void reset() {
-        running = false;
-        counter = start_time = original_time;
-        dinged = false;
+        this.running = false;
+        this.counter = this.start_time = this.original_time;
+        this.dinged = false;
     }
     void setTimer(long newTime){
-        running = false;
-        counter = start_time = original_time = newTime;
+        this.running = false;
+        this.counter = this.start_time = this.original_time = newTime;
     }
     void ding(){
-        dinged = true;
+        this.dinged = true;
     }
 
     //Display functions
     long getSecondsRemaining(){
-        return counter % 60;
+        return this.counter % 60;
     }
     long getMinutesRemaining(){
-        return (counter / 60) % 60;
+        return (this.counter % 360) / 60;
     }
     long getHoursRemaining(){
-        return counter / 360;
+        return this.counter / 360;
+    }
+
+    String getfullDisplay(){
+        long sec =
     }
 }

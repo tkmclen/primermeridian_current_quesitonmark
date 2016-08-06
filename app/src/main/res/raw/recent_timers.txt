@@ -1,4 +1,5 @@
-//format: SkillSet_Name|BREAKHR:MIN:SEC|WORKHR:MIN:SEC|Date_Last_Used(MM/DD/YY)
+//format: first_run NL recent timers NL
+0
 Test Set 1|00:20:00|00:40:00|7/30/16
 Custom Set 1|00:20:00|00:00:00|7/15/16
 Test Set 1|00:20:00|00:00:00|6/30/16

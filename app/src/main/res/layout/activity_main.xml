@@ -358,18 +358,27 @@
                 android:layout_gravity="center"
                 android:weightSum="1"
                 android:id="@+id/MAIN_SMENU_TEMPLATE_SKILLS_FRAME"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <ListView
                     android:layout_width="wrap_content"
-                    android:layout_height="193dp"
+                    android:layout_height="180dp"
                     android:id="@+id/MAIN_SMENU_SETS_LIST"
+                    android:scrollIndicators="right"
+                    android:smoothScrollbar="true"
+                    android:visibility="gone" />
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:id="@+id/MAIN_SMENU_FULL_SKILL_LIST"
+                    android:visibility="visible"
                     android:scrollIndicators="right"
                     android:smoothScrollbar="true" />
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="35dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Skills Used:"
                     android:id="@+id/MAIN_SMENU_SKILLS_HEADER"
@@ -379,6 +388,15 @@
                     android:layout_columnSpan="3"
                     android:textAlignment="center"
                     android:singleLine="true"
+                    android:visibility="gone"
+                    android:gravity="center_vertical|center|center_horizontal" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/MAIN_SMENU_NEW_SET_NAME"
+                    android:text="name this skill set"
+                    android:textAlignment="center"
                     android:visibility="visible" />
 
                 <GridLayout
@@ -499,64 +517,14 @@
                         android:layout_width="85dp"
                         android:layout_height="wrap_content"
                         android:text="Delete"
-                        android:id="@+id/MAIN_SMENU_TEMPLATES_DELETE"
-                        android:visibility="gone" />
+                        android:id="@+id/MAIN_SMENU_CENTER_BUTTON"
+                        android:visibility="visible" />
 
                     <Button
                         android:layout_width="127dp"
                         android:layout_height="wrap_content"
                         android:text="NEXT"
                         android:id="@+id/MAIN_SMENU_TEMPLATES_NEXT" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="345dp"
-                android:layout_gravity="center"
-                android:weightSum="1"
-                android:id="@+id/MAIN_SMENU_NEW_TEMPLATE_FRAME"
-                android:visibility="visible"
-                android:measureWithLargestChild="false">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/MAIN_SMENU_NEW_SET_NAME"
-                    android:text="name this skill set"
-                    android:textAlignment="center"
-                    android:visibility="visible" />
-
-                <ListView
-                    android:layout_width="match_parent"
-                    android:layout_height="212dp"
-                    android:id="@+id/MAIN_SMENU_FULL_SKILL_LIST"
-                    android:visibility="visible"
-                    android:layout_weight="1.05" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:weightSum="1"
-                    android:layout_gravity="center"
-                    android:id="@+id/MAIN_SMENU_NEW_SET_BUTTONS"
-                    android:visibility="visible">
-
-                    <Button
-                        android:layout_width="135dp"
-                        android:layout_height="wrap_content"
-                        android:text="BACK"
-                        android:id="@+id/MAIN_SMENU_NEW_SET_BACK"
-                        android:layout_gravity="center_horizontal" />
-
-                    <Button
-                        android:layout_width="210dp"
-                        android:layout_height="wrap_content"
-                        android:text="Choose up to 8 skills"
-                        android:id="@+id/MAIN_SMENU_NEW_SET_NEXT" />
                 </LinearLayout>
 
             </LinearLayout>
